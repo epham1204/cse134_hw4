@@ -178,6 +178,97 @@ iframe {
     aspect-ratio: 16 / 9;
     display: block;
 }
+
+
+/* field instructions between a label and its control */
+fieldset p {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+}
+
+/* fixed border and reserved icon space so validation never shifts layout */
+input, textarea {
+    border: 2px solid dimgray;
+    border-radius: 0.25em;
+    padding: 0.3em 2em 0.3em 0.5em;
+    margin-bottom: 0.5rem;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1.1em;
+}
+
+/* keep the textarea icon in the top corner, away from the resize handle */
+textarea {
+    background-position: right 0.5em top 0.5em;
+}
+
+/* required fields get an accent edge */
+input:required, textarea:required {
+    border-left: 5px solid var(--color-accent);
+}
+
+/* invalid after the user edits or tries to submit: dashed red border plus warning icon */
+input:user-invalid, textarea:user-invalid {
+    border-color: firebrick;
+    border-style: dashed;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23b22222'/%3E%3Cpath d='M12 6v8' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='18' r='1.5' fill='white'/%3E%3C/svg%3E");
+}
+
+/* valid after the user edits: green border plus check icon */
+input:user-valid, textarea:user-valid {
+    border-color: forestgreen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23228b22'/%3E%3Cpath d='M7 12.5l3.5 3.5L17 9' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* headings inside the form message areas */
+#form-errors-area h3, #form-info-area h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+}
+
+/* error area only takes up space while an error is listed */
+#form-errors-area:has(li:not([hidden])) {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border: 2px dashed firebrick;
+    border-radius: 0.25em;
+    background: white;
+}
+
+/* list of current errors */
+#error-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 1rem;
+}
+
+/* information area with the character count */
+#form-info-area {
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+/* character count: border space is reserved so warnings do not shift text */
+#comments-info {
+    margin: 0;
+    padding-left: 0.5rem;
+    border-left: 5px solid transparent;
+}
+
+/* near the limit: bold text and a marker bar, on top of the changed wording */
+#comments-info[data-state="warning"] {
+    font-weight: 700;
+    border-left-color: darkorange;
+}
+
+/* at the limit */
+#comments-info[data-state="limit"] {
+    font-weight: 700;
+    border-left-color: var(--color-text);
+}
+
+
 /* responsive layout for smaller screens */
 @media (max-width: 600px) {
 
