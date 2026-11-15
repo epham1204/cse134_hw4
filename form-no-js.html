@@ -17,7 +17,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
-        <li><a href="form-no-js.html" aria-current="page">Contact</a></li>
+        <li><a href="form-no-js.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -32,16 +32,16 @@
 
         <fieldset>
           <legend>Your info</legend>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required>
-          <label for="email">Email</label>
+          <label for="name">Name (required)</label>
+          <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required minlength="1" maxlength="100">
+          <label for="email">Email (required) - Use a format like name@example.com.</label>
           <input type="email" id="email" name="email" autocomplete="email" placeholder="Your email address" required>
         </fieldset>
 
         <fieldset>
           <legend>Message</legend>
-          <label for="comments">Your message</label>
-          <textarea id="comments" name="comments" rows="6" cols="50" placeholder="Write your message here" required></textarea>
+          <label for="comments">Your message (required) - Between 10 and 1,000 characters.</label>
+          <textarea id="comments" name="comments" rows="6" cols="50" placeholder="Write your message here" required minlength="10" maxlength="1000"></textarea>
         </fieldset>
 
         <button type="submit">Submit</button>
